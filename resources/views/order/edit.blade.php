@@ -25,14 +25,27 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="client-name" class="col-sm-4 col-form-label text-md-right">Имя клиента</label>
+                                <label for="contact-name" class="col-sm-4 col-form-label text-md-right">Имя клиента</label>
 
                                 <div class="col-md-6">
-                                    <input id="client-name" type="text" class="form-control{{ $errors->has('client_name') ? ' is-invalid' : '' }}" name="client_name" value="{{ old('client_name') }}" required>
+                                    <input id="contact-name" type="text" class="form-control{{ $errors->has('contact_name') ? ' is-invalid' : '' }}" name="contact_name" value="{{ old('contact_namec') }}" required>
 
-                                    @if ($errors->has('client_name'))
+                                    @if ($errors->has('contact_name'))
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('client_name') }}</strong>
+                                        <strong>{{ $errors->first('contact_name') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="contact-phone" class="col-sm-4 col-form-label text-md-right">Телефон клиента</label>
+
+                                <div class="col-md-6">
+                                    <input id="contact-phone" type="text" class="form-control{{ $errors->has('contact_phone') ? ' is-invalid' : '' }}" name="contact_phone" value="{{ old('contact_phone') }}" required>
+
+                                    @if ($errors->has('contact_phone'))
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('contact_phone') }}</strong>
                                     </span>
                                     @endif
                                 </div>

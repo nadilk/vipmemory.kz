@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
+use App\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -21,8 +23,17 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function save()
+    public function save(Request $request)
     {
-        return view('home');
+        $order_date = $request->input('order_date');
+        $name  = $request->input('contact_name');
+        $phone  = $request->input('contact_phone');
+
+        $contact = new Contact(compact('name','phone'));
+        $contact->save();
+        $order = new Order(compact('order_date'));
+        $order->contact()->associate($contact);
+        $order->save();
+        return response()->json($order);
     }
 }
